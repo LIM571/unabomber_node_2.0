@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Lutador</title>
+  <!-- Adicione seus estilos e links para folhas de estilo aqui -->
+</head>
+<body>
+  <header>
+  </header>
+  <div class="container">
+    <h2>Editar Lutador</h2>
+    <form action="/editar/<%= lutador.id %>" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" name="nome" value="<%= lutador.nome %>" required>
+      </div>
+      <div class="form-group">
+        <label for="nome_luta">Nome de Luta:</label>
+        <input type="text" class="form-control" name="nome_luta" value="<%= lutador.nome_luta %>" required>
+      </div>
+      <div class="form-group">
+        <label for="idade">Idade:</label>
+        <input type="text" class="form-control" name="idade" value="<%= lutador.idade %>" required>
+      </div>
+      <div class="form-group">
+        <label for="peso">Peso:</label>
+        <input type="text" class="form-control" name="peso" value="<%= lutador.peso %>" required>
+      </div>
+      <!-- Adicione outros campos conforme necessário -->
+
+      <div class="form-group">
+        <label for="imagem">Imagem:</label>
+        <input type="file" class="form-control" name="imagem">
+        <p>Imagem atual: <%= lutador.imagem %></p>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+  </div>
+</body>
+</html>

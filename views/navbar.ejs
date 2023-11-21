@@ -1,0 +1,71 @@
+<link href="/styles/output.css" rel="stylesheet" />
+
+
+<nav class="p-6 bg-slate-900 h-24 ">
+    <div class="h-24 container mx-auto flex items-center justify-between mb-12">
+        <!-- Logo com link (lado esquerdo) -->
+        <div class="space-x-20">
+            <div class="flex items-center">
+                <a href="/">
+                    <img src="/img/logo.png" alt="Unabomber" class="h-12 text-white" id="logo-image"
+                        onmouseover="changeImage()" onmouseout="resetImage()" />
+                </a>
+                <a href="/" class="text-white hover:text-yellow-300 ml-2">Unabomber</a>
+            </div>
+        </div>
+        <!-- Menu Hamburguer (visível em telas pequenas) -->
+        <div class="space-x-4 md:hidden">
+            <!-- md:hidden significa que essa parte é visível apenas em telas médias e menores -->
+            <button id="menu-toggle" class=" hover:text-yellow-300 focus:outline-none">
+                <!-- Altere a classe para text-green-500 para tornar o ícone verde -->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="2rem" height="2rem"
+                    viewBox="0 0 50 50" style="fill:#FFFFFF;">
+                    <path
+                        d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <!-- Links de navegação (lado direito) -->
+        <div class="hidden md:flex space-x-4">
+            <!-- md:flex significa que essa parte é visível em telas médias e maiores -->
+            <a href="/logout" class="text-white hover:text-yellow-300">Logout</a>
+            <a href="/Lutador" class="text-white hover:text-yellow-300">Lutadores</a>
+            <a href="/inscricao" class="text-white hover:text-yellow-300">Adicionar</a>
+            <% if (locals.logado) { %>
+            <img src="/imagens/<%= imagem%>" width="30rem" height="2rem" alt="">
+            <% } %> 
+             
+
+
+
+        </div>
+    </div>
+    <!-- Menu Dropdown (visível em telas pequenas) -->
+    <ul id="menu-dropdown" class="hidden md:hidden text-white mt-2">
+        <a href="/logout" class="text-white hover:text-yellow-300">Logout</a>
+        <li><a href="/lutador" class="block py-2">Lutadores</a></li>
+        <a href="/inscricao" class="text-white hover:text-yellow-300">Adicionar</a>
+        <% if (locals.logado) { %>
+
+            <img src="/imagens/<%= imagem%>" width="30rem" height="2rem" alt="">
+            <% } %> 
+    </ul>
+</nav>
+
+<script>
+    function changeImage() {
+        document.getElementById('logo-image').src = '/img/lg.png';
+    }
+
+    function resetImage() {
+        document.getElementById('logo-image').src = '/img/logo.png';
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuDropdown = document.getElementById('menu-dropdown');
+
+    menuToggle.addEventListener('click', () => {
+        menuDropdown.classList.toggle('hidden');
+    });
+</script>

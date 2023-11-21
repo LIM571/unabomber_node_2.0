@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/output.css" rel="stylesheet" />
+    <title>Lutadores</title>
+</head>
+
+<body class="bg-yellow-600">
+    <%- include('navbar.ejs') %>
+    
+    <% for (let i = 0; i < lutadores.length; i++) { %>
+        <div class="bg-white p-4 mb-4 shadow-md rounded-md">
+            <h2 class=""><%= lutadores[i].nome_luta %></h2>
+            <p class="text-gray-600 mb-2">Nome: <%= lutadores[i].nome %></p>
+            <p class="text-gray-600 mb-2">Idade: <%= lutadores[i].idade %></p>
+            <p class="text-gray-600 mb-2">Peso: <%= lutadores[i].peso %></p>
+            <img src="/imagens/<%=lutadores[i].imagem%>" alt="<%=lutadores[i].nome%>" class="w-32 h-32 object-cover rounded-full">
+            <a href="/apagar/<%=lutadores[i].id %>">apagar</a> 
+            <a href="/editar/<%=lutadores[i].id%>">editar</a>
+        </div>
+    <% } %>
+
+   
+
+    <div class="container">
+     
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function changeImage() {
+        document.getElementById('logo-image').src = '/img/lg.png';
+    }
+
+    function resetImage() {
+        document.getElementById('logo-image').src = '/img/logo.png';
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuDropdown = document.getElementById('menu-dropdown');
+
+    menuToggle.addEventListener('click', () => {
+        menuDropdown.classList.toggle('hidden');
+    });
+</script>
+
+</body>
+
+</html>
